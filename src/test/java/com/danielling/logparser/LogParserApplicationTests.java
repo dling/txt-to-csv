@@ -24,7 +24,7 @@ class LogParserApplicationTests {
 	@Test
 	void getEntriesAsCorrectNumberOfEntries() {
 		List<DataEntry> entries = logParser.getEntries(TEST_FILE_LOCATION);
-		assertTrue(entries.size() == 4);
+		assertEquals(4, entries.size());
 	}
 
 	@Test

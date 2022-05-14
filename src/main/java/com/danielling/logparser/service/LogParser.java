@@ -16,7 +16,6 @@ public class LogParser {
 
     final Logger log = LoggerFactory.getLogger(LogParser.class);
 
-    //private static final String NEW_RECORD_IDENTIFIER = "\n";
     private static final String KEY_IDENTIFIER = "ID";
 
     public List<DataEntry> getEntries(String filePath) {
@@ -27,12 +26,12 @@ public class LogParser {
             String key = getKey(line);
             String value = getValue(line);
             if (key.equalsIgnoreCase(KEY_IDENTIFIER)) {
-                validateAddEntry(dataEntry, dataEntries);
+                addEntry(dataEntry, dataEntries);
                 dataEntry = new DataEntry();
             }
-            validateKeyValue(dataEntry, key, value);
+            addKeyValue(dataEntry, key, value);
         }
-        validateAddEntry(dataEntry, dataEntries);
+        addEntry(dataEntry, dataEntries);
         return dataEntries;
     }
 
@@ -47,11 +46,11 @@ public class LogParser {
         return csv;
     }
 
-    private void validateAddEntry(DataEntry dataEntry, List<DataEntry> dataEntries) {
+    private void addEntry(DataEntry dataEntry, List<DataEntry> dataEntries) {
         if (dataEntry.values() > 0) { dataEntries.add(dataEntry); }
     }
 
-    private void validateKeyValue(DataEntry dataEntry, String key, String value) {
+    private void addKeyValue(DataEntry dataEntry, String key, String value) {
         if (key.length() > 0) {
             value = value.contains(",") ? "\"" + value + "\"" : value;
             dataEntry.addValue(key, value);
@@ -71,7 +70,7 @@ public class LogParser {
         try {
             allLines = Files.readAllLines(Paths.get(filePath));
         } catch (IOException e) {
-            log.warn("Unable to read lines from input {}", filePath);
+            log.error("Unable to read lines from input {}", filePath);
         }
         return allLines;
     }

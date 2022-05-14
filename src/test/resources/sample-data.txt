@@ -1,0 +1,31 @@
+ID         = 456
+Department  = Marketing
+Employees   = 5
+Location    = Stockholm, Sweden
+Founded     = 2022-01-15
+Update      = 2022-01-15
+Notes       = Marketing includes email newsletters, facebook, twitter etc
+
+ID          = 954
+Department  = IT
+Employees   = 2
+Location    = Stockholm, Sweden
+Founded     = 2022-01-15
+Update      = 2022-02-15
+Notes       = IT, workspace administration, firewalls etc
+
+ID          = 573
+Department  = Engineering
+Employees   = 17
+Location    = Stockholm, Sweden
+Founded     = 2022-01-15
+Update      = 2022-02-25
+Notes       = Software development and devops
+
+ID          = 573
+Department  = Management
+Employees   = 4
+Location    = Stockholm, Sweden
+Founded     = 2022-01-15
+Update      = 2022-03-04
+Notes       = CEO and founders
